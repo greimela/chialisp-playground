@@ -1,14 +1,19 @@
-# monaco-tm
+# clvm-playground
 
-This gets TextMate grammars working in standalone Monaco by leveraging
-`vscode-oniguruma` and `vscode-textmate`. For more context, see:
-https://github.com/microsoft/monaco-editor/issues/1915.
+The clvm-playground provides a simple interface for interested developers to try out the [Chialisp](https://chialisp.com/) programming language, which powers the [Chia](https://www.chia.net/) blockchain.
 
-## Run demo
+## Demo
+
+A demo of the playgorund can be found at https://clvm-playground.vercel.app/
+
+## Serve locally for development
 
 - `yarn install`
-- `yarn demo`
+- `yarn start`
 - open http://localhost:8084/
 
-Currently, only the Python grammar and VS Code Dark+ themes are included in the
-demo.
+Currently, only the VS Code Dark+ theme is included.
+
+## Attribution
+
+This project is based on [bolinfest/monaco-tm](https://github.com/bolinfest/monaco-tm), which enables Monaco to understand textmate grammars, and [Rigidity/vscode-chialisp](https://github.com/Rigidity/vscode-chialisp), where I got the initial textmate grammar for chialisp. Both projects are licensed under the MIT license
