@@ -1,107 +1,58 @@
 {
-  "comment": "",
-  "fileTypes": ["lisp", "cl", "l", "mud", "el"],
-  "foldingStartMarker": "\\(",
-  "foldingStopMarker": "\\)",
-  "keyEquivalent": "^~L",
-  "name": "Lisp",
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Chialisp",
   "patterns": [
     {
-      "captures": {
-        "1": {
-          "name": "punctuation.definition.comment.lisp"
-        }
-      },
-      "match": "(;).*$\\n?",
-      "name": "comment.line.semicolon.lisp"
+      "include": "#operators"
     },
     {
-      "captures": {
-        "2": {
-          "name": "storage.type.function-type.lisp"
-        },
-        "4": {
-          "name": "entity.name.function.lisp"
-        }
-      },
-      "match": "(\\b(?i:(defun|defun-inline|defmethod|defmacro))\\b)(\\s+)((\\w|\\-|\\!|\\?)*)",
-      "name": "meta.function.lisp"
+      "include": "#literals"
     },
     {
-      "captures": {
-        "2": {
-          "name": "storage.type.function-type.lisp"
-        },
-        "4": {
-          "name": "entity.name.function.lisp"
-        }
-      },
-      "match": "(\\b(?i:(mod))\\b)(\\s+)((\\w|\\-|\\!|\\?)*)",
-      "name": "support.function.lisp"
-    },
-    {
-      "captures": {
-        "1": {
-          "name": "punctuation.definition.constant.lisp"
-        }
-      },
-      "match": "(#)(\\w|[\\\\+-=<>'\"&#])+",
-      "name": "constant.character.lisp"
-    },
-    {
-      "captures": {
-        "1": {
-          "name": "punctuation.definition.variable.lisp"
-        },
-        "3": {
-          "name": "punctuation.definition.variable.lisp"
-        }
-      },
-      "match": "(\\*)(\\S*)(\\*)",
-      "name": "variable.other.global.lisp"
-    },
-    {
-      "match": "\\b(?i:case|do|let|loop|if|else|when)\\b",
-      "name": "keyword.control.lisp"
-    },
-    {
-      "match": "\\b(?i:eq|neq|and|or)\\b",
-      "name": "keyword.operator.lisp"
-    },
-    {
-      "match": "\\b(?i:null|nil|CREATE_COIN|CREATE_PUZZLE_ANNOUNCEMENT|AGG_SIG_ME|ASSERT_COIN_ANNOUNCEMENT)\\b",
-      "name": "constant.language.lisp"
-    },
-    {
-      "match": "\\b(?i:cons|car|cdr|cond|lambda|format|setq|setf|quote|eval|append|list|listp|memberp|t|load|progn|f|r|l|sha256|include|logior|logand|q|lsh)\\b",
-      "name": "support.function.lisp"
-    },
-    {
-      "match": "\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b",
-      "name": "constant.numeric.lisp"
-    },
-    {
-      "begin": "\"",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.begin.lisp"
-        }
-      },
-      "end": "\"",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.end.lisp"
-        }
-      },
-      "name": "string.quoted.double.lisp",
+      "include": "#comments"
+    }
+  ],
+  "repository": {
+    "operators": {
       "patterns": [
         {
-          "match": "\\\\.",
-          "name": "constant.character.escape.lisp"
+          "name": "keyword.control.chialisp",
+          "match": "\\b(a|i|x|softfork|if|qq|unquote|mod|defconstant|defun-inline|defun|defmacro|include)\\b"
+        },
+        {
+          "name": "keyword.other.chialisp",
+          "match": "\\b(q|c|f|r|l|substr|strlen|concat|point_add|pubkey_for_exp|list|all|any|divmod|logand|logior|logxor|lognot|ash|lsh|sha256|not)\\b|\\.|=|>s\\b|>|\\+|-|\\*|/"
+        }
+      ]
+    },
+    "literals": {
+      "patterns": [
+        {
+          "name": "constant.numeric.chialisp",
+          "match": "-?[0-9]+|0[xX][0-9a-fA-F]"
+        },
+        {
+          "name": "variable.chialisp",
+          "match": "[a-zA-Z_-][a-zA-Z0-9_-]*"
+        },
+        {
+          "name": "string.quoted.double.chialisp",
+          "match": "\".*?\""
+        },
+        {
+          "name": "string.quoted.single.chialisp",
+          "match": "'.*?'"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line",
+          "match": ";.*"
         }
       ]
     }
-  ],
-  "scopeName": "source.chialisp",
-  "uuid": "00D451C9-6B1D-11D9-8DFA-000D93589AF6"
+  },
+  "scopeName": "source.chialisp"
 }
