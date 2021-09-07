@@ -114,7 +114,7 @@ async function main(language: LanguageId) {
 
 // Taken from https://github.com/microsoft/vscode/blob/829230a5a83768a3494ebbc61144e7cde9105c73/src/vs/workbench/services/textMate/browser/textMateService.ts#L33-L40
 async function loadVSCodeOnigurumWASM(): Promise<Response | ArrayBuffer> {
-  const response = await fetch('/node_modules/vscode-oniguruma/release/onig.wasm');
+  const response = await fetch('onig.wasm');
   const contentType = response.headers.get('content-type');
   if (contentType === 'application/wasm') {
     return response;
