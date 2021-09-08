@@ -49,6 +49,7 @@ module.exports = {
         'node_modules/vscode-oniguruma/release/onig.wasm',
         {from: 'grammars', to: 'grammars'},
         {from: 'configurations', to: 'configurations'},
+        'node_modules/clvm_tools/browser',
       ],
     }),
     // As suggested on:
