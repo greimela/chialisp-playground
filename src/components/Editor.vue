@@ -99,11 +99,6 @@ export default {
         emit('update:value', codeEditor.getValue());
       });
       provider.injectCSS();
-      // window.onresize = function () {
-      //   if (codeEditor) {
-      //     codeEditor.layout();
-      //   }
-      // };
     }
 
     onMounted(() => {
