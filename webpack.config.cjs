@@ -1,6 +1,7 @@
 const CopyPlugin = require('copy-webpack-plugin');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const path = require('path');
+const {VueLoaderPlugin} = require('vue-loader');
 
 module.exports = {
   target: 'web',
@@ -19,13 +20,17 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx'],
+    extensions: ['.js', '.ts', '.tsx', '.vue'],
   },
   module: {
     rules: [
       {
         test: /\.ts$/,
         loader: 'ts-loader',
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        },
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -38,6 +43,10 @@ module.exports = {
       {
         test: /\.wasm$/,
         use: ['wasm-loader'],
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
       },
     ],
   },
@@ -57,5 +66,6 @@ module.exports = {
     //
     // Use the MonacoWebpackPlugin to disable all built-in tokenizers/languages.
     new MonacoWebpackPlugin({languages: []}),
+    new VueLoaderPlugin(),
   ],
 };
