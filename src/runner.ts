@@ -10,7 +10,11 @@ export function run(source: string, args = ''): string {
 
     return goAndReturn('brun', compiled, args);
   } else {
-    return goAndReturn('run', source);
+    if (args) {
+      return goAndReturn('run', source, args);
+    } else {
+      return goAndReturn('run', source);
+    }
   }
 }
 
@@ -30,7 +34,11 @@ export function goAndReturn(
   let result = '';
 
   clvm_tools.setPrintFunction((...messages: any[]) => (result = messages.join(' ')));
-  clvm_tools.go(operation, sourceString, argumentString);
+  try {
+    clvm_tools.go(operation, sourceString, argumentString);
+  } catch (error) {
+    return 'FAIL:' + (error as any).message;
+  }
 
   return result;
 }
