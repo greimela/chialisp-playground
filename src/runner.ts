@@ -7,6 +7,9 @@ export function initRunner() {
 export function run(source: string, args = ''): string {
   if (source.startsWith('(mod')) {
     const compiled = goAndReturn('run', source);
+    if (compiled.startsWith('FAIL')) {
+      return compiled;
+    }
 
     return goAndReturn('brun', compiled, args);
   } else {
