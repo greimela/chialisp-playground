@@ -3,16 +3,33 @@
   <div class="container-xl pt-4">
     <div class="row">
       <div class="col-lg-9 col-md-12">
-        <Editor :value="sourceCode" @update:value="debouncedRunSource"></Editor>
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Source Code</h3>
+          </div>
+          <Editor :value="sourceCode" @update:value="debouncedRunSource"></Editor>
+        </div>
       </div>
       <div class="col-lg-3 col-md-12 pt-lg-0 pt-4">
-        ARGUMENTS
-        <br />
-        <input type="text" v-model="args" @keyup="() => debouncedRunSource()" />
-        <br />
-        <br />
-        RESULT
-        <div :class="{'text-danger': hasError}">{{ result }}</div>
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Arguments</h3>
+            <input
+              class="form-control"
+              type="text"
+              v-model="args"
+              @keyup="() => debouncedRunSource()"
+            />
+          </div>
+        </div>
+        <div class="card mt-4">
+          <div class="card-body">
+            <h3 class="card-title">Result</h3>
+            <div :class="{'text-danger': hasError, 'text-success': !hasError}">
+              <strong>{{ result }}</strong>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
