@@ -4,7 +4,7 @@ The chialisp-playground provides a simple interface for interested developers to
 
 ## Demo
 
-A demo of the playgorund can be found at https://clvm-playground.vercel.app/
+A demo of the playgorund can be found at https://chialisp-playground.vercel.app/
 
 ## Serve locally for development
 
