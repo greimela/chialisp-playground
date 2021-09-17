@@ -1,6 +1,6 @@
-# clvm-playground
+# chialisp-playground
 
-The clvm-playground provides a simple interface for interested developers to try out the [Chialisp](https://chialisp.com/) programming language, which powers the [Chia](https://www.chia.net/) blockchain.
+The chialisp-playground provides a simple interface for interested developers to try out the [Chialisp](https://chialisp.com/) programming language, which powers the [Chia](https://www.chia.net/) blockchain.
 
 ## Demo
 
